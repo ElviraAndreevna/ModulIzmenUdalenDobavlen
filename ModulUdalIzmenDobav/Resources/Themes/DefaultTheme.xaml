@@ -1,0 +1,299 @@
+﻿ <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:ModulUdalIzmenDobav.converters">
+    <converters:RelativeToFullPathConverter x:Key="relativeToFullPathConverter"></converters:RelativeToFullPathConverter>
+    <converters:ListAnketToStringConverter x:Key="listAnketToStringConverter"></converters:ListAnketToStringConverter>
+    <converters:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"></converters:BooleanToVisibilityConverter>
+    <converters:RemoveAvailabilityButtonConverter x:Key="removeAvailabilityButtonConverter"></converters:RemoveAvailabilityButtonConverter>
+
+
+    <!--<Style TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#F3E8D3"></Setter>
+        <Setter Property="BorderBrush" Value="#133215"></Setter>
+        <Setter Property="Foreground" Value="#133215"/>
+        <Setter Property="FontFamily" Value="Bebas Neue"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="MinWidth" Value="300"></Setter>
+        <Setter Property="Height" Value="40"></Setter>
+        <Setter Property="Height" Value="40"></Setter>
+        <Setter Property="Margin" Value="0,20,0,0"/>  
+    </Style>-->
+
+    <Style TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="15" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="#F3E8D3"/>
+        <Setter Property="BorderBrush" Value="#133215"/>
+        <Setter Property="Foreground" Value="#133215"/>
+        <Setter Property="FontFamily" Value="Bebas Neue"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="MinWidth" Value="150"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="0,20,0,0"/>
+    </Style>
+
+    <Style TargetType = "Button" x:Key="resetFilterButtonStyle">
+        <Setter Property = "Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <ContentPresenter></ContentPresenter>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type PasswordBox}">
+        <Setter Property="Background" Value="#F3E8D3"/>
+        <Setter Property="BorderBrush" Value="#133215"/>
+        <Setter Property="Foreground" Value="#133215"/>
+        <Setter Property="FontFamily" Value="Bebas Neue"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="MinWidth" Value="370"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="0,20,0,0"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBox}">
+        <Setter Property="Background" Value="#F3E8D3"/>
+        <Setter Property="BorderBrush" Value="#133215"/>
+        <Setter Property="Foreground" Value="#133215"/>
+        <Setter Property="FontFamily" Value="Bebas Neue"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="MinWidth" Value="370"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="0,20,0,0"/>
+    </Style>
+
+    <!--<Style TargetType="{x:Type PasswordBox}">
+            <Setter Property="Background" Value="#F3E8D3"/>
+            <Setter Property="BorderBrush" Value="#133215"/>
+            <Setter Property="Foreground" Value="#133215"/>
+            <Setter Property="FontFamily" Value="Bebas Neue"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="MinWidth" Value="370"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="0,20,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type PasswordBox}">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="15">  Установите радиус закругления 
+                            <ScrollViewer x:Name="PART_ScrollViewer">
+                                <Grid>
+                                    <ScrollViewer x:Name="PART_ContentHost"/>
+                                </Grid>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+
+
+    <Style TargetType="{x:Type DataGrid}">
+        <Setter Property="Background" Value="#B0E5FD"></Setter>
+        <Setter Property="BorderBrush" Value="#0000"></Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Image}" x:Key="logoImageStyle">
+        <Setter Property="Source" Value="..\Images\iconkapril.png"></Setter>
+        <Setter Property="Width" Value="100"></Setter>
+        <Setter Property="Height" Value="100"></Setter>
+        <Setter Property="Margin" Value="10,10,0,0"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        <Setter Property="VerticalAlignment" Value="Top"></Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Window}" x:Key="windowStyle">
+        <Setter Property="Background" Value="#ffffff"></Setter>
+        <Setter Property="FontFamily" Value="Times New Roman"></Setter>
+    </Style>
+
+    <Style TargetType="Button" x:Key="buttonExitStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Image Source="../Images/wihod.png"></Image>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="menuListItemStyle" TargetType="ListBoxItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border Height="50" BorderThickness="0" Background="Transparent" Name="_border">
+                        <ContentPresenter></ContentPresenter>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="_border" Property="Background" Value="#133215"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="_border" Property="Background" Value="#92B775"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="tabItemStyle" TargetType="TabItem">
+        <Setter Property="Foreground" Value="#1C5A2F"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TabItem">
+                    <Border Margin="4,0,4,25" Name="_border" CornerRadius="3" Background="Transparent"
+                        BorderBrush="#1C5A2F" BorderThickness="1">
+                        <ContentPresenter ContentSource="Header"></ContentPresenter>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="_border" Property="Background" Value="#1C5A2F"></Setter>
+                            <Setter Property="Foreground" Value="White"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Geometry x:Key="vec1">M 28.53 17.4 l -4.64 -2.9 l 4.64 -2.9 a 1 1 0 0 0 0 -1.7 l -6 -3.75 a 1 1 0 0 0 -1.06 0 L 16 9.57 L 10.53 6.15 a 1 1 0 0 0 -1.06 0 l -6 3.75 a 1 1 0 0 0 0 1.7 l 4.64 2.9 L 3.47 17.4 a 1 1 0 0 0 0 1.7 l 6 3.75 a 1 1 0 0 0 1.06 0 L 16 19.43 l 5.47 3.42 a 1 1 0 0 0 1.06 0 l 6 -3.75 a 1 1 0 0 0 0 -1.7 Z M 16 17.07 L 11.89 14.5 L 16 11.93 l 4.11 2.57 Z m 6 -8.89 l 4.11 2.57 L 22 13.32 l -4.11 -2.57 Z m -12 0 l 4.11 2.57 L 10 13.32 L 5.89 10.75 Z m 0 12.64 L 5.89 18.25 L 10 15.68 l 4.11 2.57 Z m 12 0 l -4.11 -2.57 L 22 15.68 l 4.11 2.57 Z</Geometry>
+    <Geometry x:Key="vec2">M16.94,25.56c7.76,2.6,18.58,4.2,30.59,4.2s22.82-1.6,30.58-4.2c6.82-2.28,11-5,11-7.72s-4.22-5.45-11-7.73c-7.76-2.58-18.57-4.2-30.57-4.2s-22.83,1.62-30.6,4.2c-14.45,4.83-14.85,10.49,0,15.45Zm89,24.77a1.49,1.49,0,0,0-1-.37.86.86,0,0,0-.22,0H72.89a3.12,3.12,0,0,0-2.22.93,3.09,3.09,0,0,0-.93,2.22v60.38a3.18,3.18,0,0,0,3.15,3.16h46.79a3.18,3.18,0,0,0,3.15-3.16V68.34a1.34,1.34,0,0,0,0-.35,1.51,1.51,0,0,0-.48-1.07L106.12,50.43a.53.53,0,0,0-.12-.1Zm-4.43,4.94V65.46a5.08,5.08,0,0,0,1.25,3.36c.77.77,3.58,2.57,4.75,2.57h10.06v39.67c0,.07-.11.17-.18.22s-.05.1-.15.1H75.33a.26.26,0,0,1-.23-.1.37.37,0,0,1-.1-.22V55.59a.24.24,0,0,1,.1-.22.29.29,0,0,1,.23-.1Zm4.88,9.87V56l10.47,10.62h-9a1.46,1.46,0,0,1-1.45-1.45ZM6,47c.53,2.52,4.63,5,11,7.16,7.76,2.6,18.58,4.2,30.59,4.2,4.18,0,8.23-.2,12.05-.56v6c-3.84.35-7.88.54-12,.54-12.62,0-24.09-1.72-32.45-4.52A37,37,0,0,1,6,55.5V73.22c.53,2.52,4.63,5,11,7.17,7.76,2.58,18.58,4.19,30.59,4.19,4.17,0,8.22-.19,12-.55V90c-3.85.35-7.89.54-12.05.54-12.61,0-24.09-1.73-32.45-4.53A37.33,37.33,0,0,1,6,81.67V99.4c.53,2.51,4.63,5,11,7.16,7.77,2.59,18.58,4.2,30.59,4.2,4.19,0,8.23-.2,12-.57v4.6a8.41,8.41,0,0,0,.07,1.33c-3.87.36-7.93.55-12.11.55-12.61,0-24.09-1.73-32.45-4.53C10.68,110.67,0,105.83,0,100.05V98.16C0,71.77,0,44.23,0,17.88,0,12.31,5.76,7.63,15.06,4.52,23.44,1.72,34.93,0,47.54,0S71.61,1.72,80,4.53s14,7,14.94,11.85a2.91,2.91,0,0,1,.17,1V39.78H89.17v-13A36.86,36.86,0,0,1,80,31.14C71.63,34,60.16,35.67,47.55,35.67S23.45,34,15.06,31.14A36.93,36.93,0,0,1,6,26.86V47Z</Geometry>
+
+    <!--<Geometry x:Key="vec1">M 28.53 17.4 l -4.64 -2.9 l 4.64 -2.9 a 1 1 0 0 0 0 -1.7 l -6 -3.75 a 1 1 0 0 0 -1.06 0 L 16 9.57 L 10.53 6.15 a 1 1 0 0 0 -1.06 0 l -6 3.75 a 1 1 0 0 0 0 1.7 l 4.64 2.9 L 3.47 17.4 a 1 1 0 0 0 0 1.7 l 6 3.75 a 1 1 0 0 0 1.06 0 L 16 19.43 l 5.47 3.42 a 1 1 0 0 0 1.06 0 l 6 -3.75 a 1 1 0 0 0 0 -1.7 Z M 16 17.07 L 11.89 14.5 L 16 11.93 l 4.11 2.57 Z m 6 -8.89 l 4.11 2.57 L 22 13.32 l -4.11 -2.57 Z m -12 0 l 4.11 2.57 L 10 13.32 L 5.89 10.75 Z m 0 12.64 L 5.89 18.25 L 10 15.68 l 4.11 2.57 Z m 12 0 l -4.11 -2.57 L 22 15.68 l 4.11 2.57 Z</Geometry>-->
+    <!--<Geometry x:Key="vec2">M16.94,25.56c7.76,2.6,18.58,4.2,30.59,4.2s22.82-1.6,30.58-4.2c6.82-2.28,11-5,11-7.72s-4.22-5.45-11-7.73c-7.76-2.58-18.57-4.2-30.57-4.2s-22.83,1.62-30.6,4.2c-14.45,4.83-14.85,10.49,0,15.45Zm89,24.77a1.49,1.49,0,0,0-1-.37.86.86,0,0,0-.22,0H72.89a3.12,3.12,0,0,0-2.22.93,3.09,3.09,0,0,0-.93,2.22v60.38a3.18,3.18,0,0,0,3.15,3.16h46.79a3.18,3.18,0,0,0,3.15-3.16V68.34a1.34,1.34,0,0,0,0-.35,1.51,1.51,0,0,0-.48-1.07L106.12,50.43a.53.53,0,0,0-.12-.1Zm-4.43,4.94V65.46a5.08,5.08,0,0,0,1.25,3.36c.77.77,3.58,2.57,4.75,2.57h10.06v39.67c0,.07-.11.17-.18.22s-.05.1-.15.1H75.33a.26.26,0,0,1-.23-.1.37.37,0,0,1-.1-.22V55.59a.24.24,0,0,1,.1-.22.29.29,0,0,1,.23-.1Zm4.88,9.87V56l10.47,10.62h-9a1.46,1.46,0,0,1-1.45-1.45ZM6,47c.53,2.52,4.63,5,11,7.16,7.76,2.6,18.58,4.2,30.59,4.2,4.18,0,8.23-.2,12.05-.56v6c-3.84.35-7.88.54-12,.54-12.62,0-24.09-1.72-32.45-4.52A37,37,0,0,1,6,55.5V73.22c.53,2.52,4.63,5,11,7.17,7.76,2.58,18.58,4.19,30.59,4.19,4.17,0,8.22-.19,12-.55V90c-3.85.35-7.89.54-12.05.54-12.61,0-24.09-1.73-32.45-4.53A37.33,37.33,0,0,1,6,81.67V99.4c.53,2.51,4.63,5,11,7.16,7.77,2.59,18.58,4.2,30.59,4.2,4.19,0,8.23-.2,12-.57v4.6a8.41,8.41,0,0,0,.07,1.33c-3.87.36-7.93.55-12.11.55-12.61,0-24.09-1.73-32.45-4.53C10.68,110.67,0,105.83,0,100.05V98.16C0,71.77,0,44.23,0,17.88,0,12.31,5.76,7.63,15.06,4.52,23.44,1.72,34.93,0,47.54,0S71.61,1.72,80,4.53s14,7,14.94,11.85a2.91,2.91,0,0,1,.17,1V39.78H89.17v-13A36.86,36.86,0,0,1,80,31.14C71.63,34,60.16,35.67,47.55,35.67S23.45,34,15.06,31.14A36.93,36.93,0,0,1,6,26.86V47Z</Geometry>-->
+    <Geometry x:Key="searchVec">M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z</Geometry>
+
+
+
+    <Style x:Key="catalogAnketItemStyle" TargetType="ListBoxItem">
+        <Setter Property="BorderBrush" Value="#b3b3b3"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Grid Margin="10">
+                        <Border x:Name="_border" Background="White" CornerRadius="5">
+
+                        </Border>
+                        <ContentPresenter></ContentPresenter>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"></Setter>
+                            <Setter TargetName="_border" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="15" Opacity="0.5" Direction="90" RenderingBias="Performance" ShadowDepth="1"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="DataGridColumnHeader">
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGridColumnHeader">
+                    <Border Height="40" Background="#133215">
+                        <TextBlock VerticalAlignment="Center" TextAlignment="Center" FontWeight="Bold">
+                            <ContentPresenter></ContentPresenter>
+                        </TextBlock>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CatalogAnketViewModel" TargetType="ListBoxItem">
+        <Setter Property="BorderBrush" Value="#b3b3b3"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Grid Margin="10">
+                        <Border x:Name="_border" Background="White" CornerRadius="3">
+
+                        </Border>
+                        <ContentPresenter></ContentPresenter>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"></Setter>
+                            <Setter TargetName="_border" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="15" Opacity="0.5" Direction="90" RenderingBias="Performance" ShadowDepth="1"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType = "TextBox" x:Key="searchTextBoxStyle">
+        <Setter Property = "Height" Value="35"></Setter>
+        <Setter Property = "Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <Border CornerRadius="5" Background="{TemplateBinding Background}"
+                                BorderThickness = "{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                        <Image Margin="10" IsHitTestVisible="False" Width="35" HorizontalAlignment="Right" VerticalAlignment = "Top">
+                            <Image.Source>
+                                <DrawingImage>
+                                    <DrawingImage.Drawing>
+                                        <DrawingGroup>
+                                            <GeometryDrawing Brush="Black" Geometry="{DynamicResource searchVec}">
+                                            </GeometryDrawing>
+                                        </DrawingGroup>
+                                    </DrawingImage.Drawing>
+                                </DrawingImage>
+                            </Image.Source>
+                        </Image>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="authorListItemStyle" TargetType="ListBoxItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border BorderThickness="0" Background="Transparent" Name="_border">
+                        <ContentPresenter></ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+     
+</ResourceDictionary>

@@ -1,0 +1,751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище ModulModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID-Account" />
+          </Key>
+          <Property Name="ID-Account" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id-AccountType" Type="int" Nullable="false" />
+          <Property Name="Image" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="AccountType">
+          <Key>
+            <PropertyRef Name="ID-AccountType" />
+          </Key>
+          <Property Name="ID-AccountType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dogovor">
+          <Key>
+            <PropertyRef Name="ID-Dogovor" />
+          </Key>
+          <Property Name="ID-Dogovor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id-Tip_dogovora" Type="int" />
+          <Property Name="Data_zaklyucheniya" Type="date" />
+          <Property Name="Summa_sdelki" Type="bigint" />
+          <Property Name="id-Ob'ekta" Type="int" />
+          <Property Name="id-Statusa_dogovora" Type="int" />
+          <Property Name="id-Sotrudnika" Type="int" />
+          <Property Name="id-Vladel'ca" Type="int" />
+        </EntityType>
+        <EntityType Name="Obekt_nedvizhimosti">
+          <Key>
+            <PropertyRef Name="ID-Ob'ekt_nedvizhimosti" />
+          </Key>
+          <Property Name="ID-Ob'ekt_nedvizhimosti" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ploshchad" Type="int" />
+          <Property Name="Kolichestvo_komnat" Type="int" />
+          <Property Name="Data_dobavleniya" Type="date" />
+          <Property Name="Data_izmeneniya" Type="date" />
+          <Property Name="Stoimost" Type="bigint" />
+          <Property Name="id-Status_ob'ekta_nedvizhimosti" Type="int" />
+          <Property Name="id-Tip_nedvizhimosti" Type="int" />
+          <Property Name="Izobrazhenia" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Sotrudnik">
+          <Key>
+            <PropertyRef Name="ID-Sotrudnik" />
+          </Key>
+          <Property Name="ID-Sotrudnik" Type="int" Nullable="false" />
+          <Property Name="Familiya" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Imya" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Otchestvo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Elektronnaya_pochta" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Dolya_ot_komissii" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status_dogovora">
+          <Key>
+            <PropertyRef Name="ID-Status_dogovora" />
+          </Key>
+          <Property Name="ID-Status_dogovora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naimenovanie" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status_ob'ekta_nedvizhimosti">
+          <Key>
+            <PropertyRef Name="ID-Status_ob'ekta_nedvizhimosti" />
+          </Key>
+          <Property Name="ID-Status_ob'ekta_nedvizhimosti" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naimenovanie" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tip_dogovora">
+          <Key>
+            <PropertyRef Name="ID-Tip_dogovora" />
+          </Key>
+          <Property Name="ID-Tip_dogovora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naimenovanie" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tip_nedvizhimosti">
+          <Key>
+            <PropertyRef Name="ID-Tip_nedvizhimosti" />
+          </Key>
+          <Property Name="ID-Tip_nedvizhimosti" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naimenovanie" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Vladelec">
+          <Key>
+            <PropertyRef Name="ID-Vladelec" />
+          </Key>
+          <Property Name="ID-Vladelec" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Familiya" Type="nvarchar" MaxLength="20" />
+          <Property Name="Imya" Type="nvarchar" MaxLength="20" />
+          <Property Name="Otchestvo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Data_rozhdeniya" Type="date" />
+          <Property Name="Elektronnaya_pochta" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefon" Type="bigint" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="100" />
+          <Property Name="Seriya_pasporta" Type="int" />
+          <Property Name="Nomer_pasporta" Type="int" />
+        </EntityType>
+        <Association Name="FK_Account_AccountType">
+          <End Role="AccountType" Type="Self.AccountType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountType">
+              <PropertyRef Name="ID-AccountType" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="id-AccountType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dogovor_Obekt_nedvizhimosti">
+          <End Role="Obekt_nedvizhimosti" Type="Self.Obekt_nedvizhimosti" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Dogovor" Type="Self.Dogovor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Obekt_nedvizhimosti">
+              <PropertyRef Name="ID-Ob'ekt_nedvizhimosti" />
+            </Principal>
+            <Dependent Role="Dogovor">
+              <PropertyRef Name="id-Ob'ekta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dogovor_Rieltor">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Dogovor" Type="Self.Dogovor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="ID-Sotrudnik" />
+            </Principal>
+            <Dependent Role="Dogovor">
+              <PropertyRef Name="id-Sotrudnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dogovor_Status_dogovora">
+          <End Role="Status_dogovora" Type="Self.Status_dogovora" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Dogovor" Type="Self.Dogovor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status_dogovora">
+              <PropertyRef Name="ID-Status_dogovora" />
+            </Principal>
+            <Dependent Role="Dogovor">
+              <PropertyRef Name="id-Statusa_dogovora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dogovor_Tip_dogovora">
+          <End Role="Tip_dogovora" Type="Self.Tip_dogovora" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Dogovor" Type="Self.Dogovor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tip_dogovora">
+              <PropertyRef Name="ID-Tip_dogovora" />
+            </Principal>
+            <Dependent Role="Dogovor">
+              <PropertyRef Name="id-Tip_dogovora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dogovor_Vladelec">
+          <End Role="Vladelec" Type="Self.Vladelec" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Dogovor" Type="Self.Dogovor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vladelec">
+              <PropertyRef Name="ID-Vladelec" />
+            </Principal>
+            <Dependent Role="Dogovor">
+              <PropertyRef Name="id-Vladel'ca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Obekt_nedvizhimosti_Status_ob'ekta_nedvizhimosti">
+          <End Role="Status_ob'ekta_nedvizhimosti" Type="Self.Status_ob'ekta_nedvizhimosti" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Obekt_nedvizhimosti" Type="Self.Obekt_nedvizhimosti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status_ob'ekta_nedvizhimosti">
+              <PropertyRef Name="ID-Status_ob'ekta_nedvizhimosti" />
+            </Principal>
+            <Dependent Role="Obekt_nedvizhimosti">
+              <PropertyRef Name="id-Status_ob'ekta_nedvizhimosti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Obekt_nedvizhimosti_Tip_nedvizhimosti">
+          <End Role="Tip_nedvizhimosti" Type="Self.Tip_nedvizhimosti" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Obekt_nedvizhimosti" Type="Self.Obekt_nedvizhimosti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tip_nedvizhimosti">
+              <PropertyRef Name="ID-Tip_nedvizhimosti" />
+            </Principal>
+            <Dependent Role="Obekt_nedvizhimosti">
+              <PropertyRef Name="id-Tip_nedvizhimosti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sotrudnik_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ID-Account" />
+            </Principal>
+            <Dependent Role="Sotrudnik">
+              <PropertyRef Name="ID-Sotrudnik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ModulModelContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountType" EntityType="Self.AccountType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dogovor" EntityType="Self.Dogovor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Obekt_nedvizhimosti" EntityType="Self.Obekt_nedvizhimosti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status_dogovora" EntityType="Self.Status_dogovora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status_ob'ekta_nedvizhimosti" EntityType="Self.Status_ob'ekta_nedvizhimosti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tip_dogovora" EntityType="Self.Tip_dogovora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tip_nedvizhimosti" EntityType="Self.Tip_nedvizhimosti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vladelec" EntityType="Self.Vladelec" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Account_AccountType" Association="Self.FK_Account_AccountType">
+            <End Role="AccountType" EntitySet="AccountType" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dogovor_Obekt_nedvizhimosti" Association="Self.FK_Dogovor_Obekt_nedvizhimosti">
+            <End Role="Obekt_nedvizhimosti" EntitySet="Obekt_nedvizhimosti" />
+            <End Role="Dogovor" EntitySet="Dogovor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dogovor_Rieltor" Association="Self.FK_Dogovor_Rieltor">
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+            <End Role="Dogovor" EntitySet="Dogovor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dogovor_Status_dogovora" Association="Self.FK_Dogovor_Status_dogovora">
+            <End Role="Status_dogovora" EntitySet="Status_dogovora" />
+            <End Role="Dogovor" EntitySet="Dogovor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dogovor_Tip_dogovora" Association="Self.FK_Dogovor_Tip_dogovora">
+            <End Role="Tip_dogovora" EntitySet="Tip_dogovora" />
+            <End Role="Dogovor" EntitySet="Dogovor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dogovor_Vladelec" Association="Self.FK_Dogovor_Vladelec">
+            <End Role="Vladelec" EntitySet="Vladelec" />
+            <End Role="Dogovor" EntitySet="Dogovor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Obekt_nedvizhimosti_Status_ob'ekta_nedvizhimosti" Association="Self.FK_Obekt_nedvizhimosti_Status_ob'ekta_nedvizhimosti">
+            <End Role="Status_ob'ekta_nedvizhimosti" EntitySet="Status_ob'ekta_nedvizhimosti" />
+            <End Role="Obekt_nedvizhimosti" EntitySet="Obekt_nedvizhimosti" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Obekt_nedvizhimosti_Tip_nedvizhimosti" Association="Self.FK_Obekt_nedvizhimosti_Tip_nedvizhimosti">
+            <End Role="Tip_nedvizhimosti" EntitySet="Tip_nedvizhimosti" />
+            <End Role="Obekt_nedvizhimosti" EntitySet="Obekt_nedvizhimosti" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sotrudnik_Account" Association="Self.FK_Sotrudnik_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModulModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID_Account" />
+          </Key>
+          <Property Name="ID_Account" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_AccountType" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="AccountType" Relationship="Self.FK_Account_AccountType" FromRole="Account" ToRole="AccountType" />
+          <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_Sotrudnik_Account" FromRole="Account" ToRole="Sotrudnik" />
+        </EntityType>
+        <EntityType Name="AccountType">
+          <Key>
+            <PropertyRef Name="ID_AccountType" />
+          </Key>
+          <Property Name="ID_AccountType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Account_AccountType" FromRole="AccountType" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Dogovor">
+          <Key>
+            <PropertyRef Name="ID_Dogovor" />
+          </Key>
+          <Property Name="ID_Dogovor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Tip_dogovora" Type="Int32" />
+          <Property Name="Data_zaklyucheniya" Type="DateTime" Precision="0" />
+          <Property Name="Summa_sdelki" Type="Int64" />
+          <Property Name="id_Ob_ekta" Type="Int32" />
+          <Property Name="id_Statusa_dogovora" Type="Int32" />
+          <Property Name="id_Sotrudnika" Type="Int32" />
+          <Property Name="id_Vladel_ca" Type="Int32" />
+          <NavigationProperty Name="Obekt_nedvizhimosti" Relationship="Self.FK_Dogovor_Obekt_nedvizhimosti" FromRole="Dogovor" ToRole="Obekt_nedvizhimosti" />
+          <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_Dogovor_Rieltor" FromRole="Dogovor" ToRole="Sotrudnik" />
+          <NavigationProperty Name="Status_dogovora" Relationship="Self.FK_Dogovor_Status_dogovora" FromRole="Dogovor" ToRole="Status_dogovora" />
+          <NavigationProperty Name="Tip_dogovora" Relationship="Self.FK_Dogovor_Tip_dogovora" FromRole="Dogovor" ToRole="Tip_dogovora" />
+          <NavigationProperty Name="Vladelec" Relationship="Self.FK_Dogovor_Vladelec" FromRole="Dogovor" ToRole="Vladelec" />
+        </EntityType>
+        <EntityType Name="Obekt_nedvizhimosti">
+          <Key>
+            <PropertyRef Name="ID_Ob_ekt_nedvizhimosti" />
+          </Key>
+          <Property Name="ID_Ob_ekt_nedvizhimosti" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ploshchad" Type="Int32" />
+          <Property Name="Kolichestvo_komnat" Type="Int32" />
+          <Property Name="Data_dobavleniya" Type="DateTime" Precision="0" />
+          <Property Name="Data_izmeneniya" Type="DateTime" Precision="0" />
+          <Property Name="Stoimost" Type="Int64" />
+          <Property Name="id_Status_ob_ekta_nedvizhimosti" Type="Int32" />
+          <Property Name="id_Tip_nedvizhimosti" Type="Int32" />
+          <Property Name="Izobrazhenia" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Dogovor" Relationship="Self.FK_Dogovor_Obekt_nedvizhimosti" FromRole="Obekt_nedvizhimosti" ToRole="Dogovor" />
+          <NavigationProperty Name="Status_ob_ekta_nedvizhimosti" Relationship="Self.FK_Obekt_nedvizhimosti_Status_ob_ekta_nedvizhimosti" FromRole="Obekt_nedvizhimosti" ToRole="Status_ob_ekta_nedvizhimosti" />
+          <NavigationProperty Name="Tip_nedvizhimosti" Relationship="Self.FK_Obekt_nedvizhimosti_Tip_nedvizhimosti" FromRole="Obekt_nedvizhimosti" ToRole="Tip_nedvizhimosti" />
+        </EntityType>
+        <EntityType Name="Sotrudnik">
+          <Key>
+            <PropertyRef Name="ID_Sotrudnik" />
+          </Key>
+          <Property Name="ID_Sotrudnik" Type="Int32" Nullable="false" />
+          <Property Name="Familiya" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Imya" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Otchestvo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Elektronnaya_pochta" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Dolya_ot_komissii" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Sotrudnik_Account" FromRole="Sotrudnik" ToRole="Account" />
+          <NavigationProperty Name="Dogovor" Relationship="Self.FK_Dogovor_Rieltor" FromRole="Sotrudnik" ToRole="Dogovor" />
+        </EntityType>
+        <EntityType Name="Status_dogovora">
+          <Key>
+            <PropertyRef Name="ID_Status_dogovora" />
+          </Key>
+          <Property Name="ID_Status_dogovora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naimenovanie" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Dogovor" Relationship="Self.FK_Dogovor_Status_dogovora" FromRole="Status_dogovora" ToRole="Dogovor" />
+        </EntityType>
+        <EntityType Name="Status_ob_ekta_nedvizhimosti">
+          <Key>
+            <PropertyRef Name="ID_Status_ob_ekta_nedvizhimosti" />
+          </Key>
+          <Property Name="ID_Status_ob_ekta_nedvizhimosti" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naimenovanie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Obekt_nedvizhimosti" Relationship="Self.FK_Obekt_nedvizhimosti_Status_ob_ekta_nedvizhimosti" FromRole="Status_ob_ekta_nedvizhimosti" ToRole="Obekt_nedvizhimosti" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tip_dogovora">
+          <Key>
+            <PropertyRef Name="ID_Tip_dogovora" />
+          </Key>
+          <Property Name="ID_Tip_dogovora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naimenovanie" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Dogovor" Relationship="Self.FK_Dogovor_Tip_dogovora" FromRole="Tip_dogovora" ToRole="Dogovor" />
+        </EntityType>
+        <EntityType Name="Tip_nedvizhimosti">
+          <Key>
+            <PropertyRef Name="ID_Tip_nedvizhimosti" />
+          </Key>
+          <Property Name="ID_Tip_nedvizhimosti" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naimenovanie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Obekt_nedvizhimosti" Relationship="Self.FK_Obekt_nedvizhimosti_Tip_nedvizhimosti" FromRole="Tip_nedvizhimosti" ToRole="Obekt_nedvizhimosti" />
+        </EntityType>
+        <EntityType Name="Vladelec">
+          <Key>
+            <PropertyRef Name="ID_Vladelec" />
+          </Key>
+          <Property Name="ID_Vladelec" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Familiya" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Imya" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Otchestvo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Data_rozhdeniya" Type="DateTime" Precision="0" />
+          <Property Name="Elektronnaya_pochta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="Int64" />
+          <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Seriya_pasporta" Type="Int32" />
+          <Property Name="Nomer_pasporta" Type="Int32" />
+          <NavigationProperty Name="Dogovor" Relationship="Self.FK_Dogovor_Vladelec" FromRole="Vladelec" ToRole="Dogovor" />
+        </EntityType>
+        <Association Name="FK_Account_AccountType">
+          <End Role="AccountType" Type="Self.AccountType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountType">
+              <PropertyRef Name="ID_AccountType" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="id_AccountType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sotrudnik_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ID_Account" />
+            </Principal>
+            <Dependent Role="Sotrudnik">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dogovor_Obekt_nedvizhimosti">
+          <End Role="Obekt_nedvizhimosti" Type="Self.Obekt_nedvizhimosti" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Dogovor" Type="Self.Dogovor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Obekt_nedvizhimosti">
+              <PropertyRef Name="ID_Ob_ekt_nedvizhimosti" />
+            </Principal>
+            <Dependent Role="Dogovor">
+              <PropertyRef Name="id_Ob_ekta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dogovor_Rieltor">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Dogovor" Type="Self.Dogovor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Principal>
+            <Dependent Role="Dogovor">
+              <PropertyRef Name="id_Sotrudnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dogovor_Status_dogovora">
+          <End Role="Status_dogovora" Type="Self.Status_dogovora" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Dogovor" Type="Self.Dogovor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status_dogovora">
+              <PropertyRef Name="ID_Status_dogovora" />
+            </Principal>
+            <Dependent Role="Dogovor">
+              <PropertyRef Name="id_Statusa_dogovora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dogovor_Tip_dogovora">
+          <End Role="Tip_dogovora" Type="Self.Tip_dogovora" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Dogovor" Type="Self.Dogovor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tip_dogovora">
+              <PropertyRef Name="ID_Tip_dogovora" />
+            </Principal>
+            <Dependent Role="Dogovor">
+              <PropertyRef Name="id_Tip_dogovora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dogovor_Vladelec">
+          <End Role="Vladelec" Type="Self.Vladelec" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Dogovor" Type="Self.Dogovor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vladelec">
+              <PropertyRef Name="ID_Vladelec" />
+            </Principal>
+            <Dependent Role="Dogovor">
+              <PropertyRef Name="id_Vladel_ca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Obekt_nedvizhimosti_Status_ob_ekta_nedvizhimosti">
+          <End Role="Status_ob_ekta_nedvizhimosti" Type="Self.Status_ob_ekta_nedvizhimosti" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Obekt_nedvizhimosti" Type="Self.Obekt_nedvizhimosti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status_ob_ekta_nedvizhimosti">
+              <PropertyRef Name="ID_Status_ob_ekta_nedvizhimosti" />
+            </Principal>
+            <Dependent Role="Obekt_nedvizhimosti">
+              <PropertyRef Name="id_Status_ob_ekta_nedvizhimosti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Obekt_nedvizhimosti_Tip_nedvizhimosti">
+          <End Role="Tip_nedvizhimosti" Type="Self.Tip_nedvizhimosti" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Obekt_nedvizhimosti" Type="Self.Obekt_nedvizhimosti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tip_nedvizhimosti">
+              <PropertyRef Name="ID_Tip_nedvizhimosti" />
+            </Principal>
+            <Dependent Role="Obekt_nedvizhimosti">
+              <PropertyRef Name="id_Tip_nedvizhimosti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModulEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Account" EntityType="Self.Account" />
+          <EntitySet Name="AccountType" EntityType="Self.AccountType" />
+          <EntitySet Name="Dogovor" EntityType="Self.Dogovor" />
+          <EntitySet Name="Obekt_nedvizhimosti" EntityType="Self.Obekt_nedvizhimosti" />
+          <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" />
+          <EntitySet Name="Status_dogovora" EntityType="Self.Status_dogovora" />
+          <EntitySet Name="Status_ob_ekta_nedvizhimosti" EntityType="Self.Status_ob_ekta_nedvizhimosti" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tip_dogovora" EntityType="Self.Tip_dogovora" />
+          <EntitySet Name="Tip_nedvizhimosti" EntityType="Self.Tip_nedvizhimosti" />
+          <EntitySet Name="Vladelec" EntityType="Self.Vladelec" />
+          <AssociationSet Name="FK_Account_AccountType" Association="Self.FK_Account_AccountType">
+            <End Role="AccountType" EntitySet="AccountType" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sotrudnik_Account" Association="Self.FK_Sotrudnik_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dogovor_Obekt_nedvizhimosti" Association="Self.FK_Dogovor_Obekt_nedvizhimosti">
+            <End Role="Obekt_nedvizhimosti" EntitySet="Obekt_nedvizhimosti" />
+            <End Role="Dogovor" EntitySet="Dogovor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dogovor_Rieltor" Association="Self.FK_Dogovor_Rieltor">
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+            <End Role="Dogovor" EntitySet="Dogovor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dogovor_Status_dogovora" Association="Self.FK_Dogovor_Status_dogovora">
+            <End Role="Status_dogovora" EntitySet="Status_dogovora" />
+            <End Role="Dogovor" EntitySet="Dogovor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dogovor_Tip_dogovora" Association="Self.FK_Dogovor_Tip_dogovora">
+            <End Role="Tip_dogovora" EntitySet="Tip_dogovora" />
+            <End Role="Dogovor" EntitySet="Dogovor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dogovor_Vladelec" Association="Self.FK_Dogovor_Vladelec">
+            <End Role="Vladelec" EntitySet="Vladelec" />
+            <End Role="Dogovor" EntitySet="Dogovor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Obekt_nedvizhimosti_Status_ob_ekta_nedvizhimosti" Association="Self.FK_Obekt_nedvizhimosti_Status_ob_ekta_nedvizhimosti">
+            <End Role="Status_ob_ekta_nedvizhimosti" EntitySet="Status_ob_ekta_nedvizhimosti" />
+            <End Role="Obekt_nedvizhimosti" EntitySet="Obekt_nedvizhimosti" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Obekt_nedvizhimosti_Tip_nedvizhimosti" Association="Self.FK_Obekt_nedvizhimosti_Tip_nedvizhimosti">
+            <End Role="Tip_nedvizhimosti" EntitySet="Tip_nedvizhimosti" />
+            <End Role="Obekt_nedvizhimosti" EntitySet="Obekt_nedvizhimosti" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModulModelContainer" CdmEntityContainer="ModulEntities2">
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="ModulModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="ID_Account" ColumnName="ID-Account" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="id_AccountType" ColumnName="id-AccountType" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountType">
+            <EntityTypeMapping TypeName="ModulModel.AccountType">
+              <MappingFragment StoreEntitySet="AccountType">
+                <ScalarProperty Name="ID_AccountType" ColumnName="ID-AccountType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dogovor">
+            <EntityTypeMapping TypeName="ModulModel.Dogovor">
+              <MappingFragment StoreEntitySet="Dogovor">
+                <ScalarProperty Name="ID_Dogovor" ColumnName="ID-Dogovor" />
+                <ScalarProperty Name="id_Tip_dogovora" ColumnName="id-Tip_dogovora" />
+                <ScalarProperty Name="Data_zaklyucheniya" ColumnName="Data_zaklyucheniya" />
+                <ScalarProperty Name="Summa_sdelki" ColumnName="Summa_sdelki" />
+                <ScalarProperty Name="id_Ob_ekta" ColumnName="id-Ob'ekta" />
+                <ScalarProperty Name="id_Statusa_dogovora" ColumnName="id-Statusa_dogovora" />
+                <ScalarProperty Name="id_Sotrudnika" ColumnName="id-Sotrudnika" />
+                <ScalarProperty Name="id_Vladel_ca" ColumnName="id-Vladel'ca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Obekt_nedvizhimosti">
+            <EntityTypeMapping TypeName="ModulModel.Obekt_nedvizhimosti">
+              <MappingFragment StoreEntitySet="Obekt_nedvizhimosti">
+                <ScalarProperty Name="ID_Ob_ekt_nedvizhimosti" ColumnName="ID-Ob'ekt_nedvizhimosti" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Ploshchad" ColumnName="Ploshchad" />
+                <ScalarProperty Name="Kolichestvo_komnat" ColumnName="Kolichestvo_komnat" />
+                <ScalarProperty Name="Data_dobavleniya" ColumnName="Data_dobavleniya" />
+                <ScalarProperty Name="Data_izmeneniya" ColumnName="Data_izmeneniya" />
+                <ScalarProperty Name="Stoimost" ColumnName="Stoimost" />
+                <ScalarProperty Name="id_Status_ob_ekta_nedvizhimosti" ColumnName="id-Status_ob'ekta_nedvizhimosti" />
+                <ScalarProperty Name="id_Tip_nedvizhimosti" ColumnName="id-Tip_nedvizhimosti" />
+                <ScalarProperty Name="Izobrazhenia" ColumnName="Izobrazhenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sotrudnik">
+            <EntityTypeMapping TypeName="ModulModel.Sotrudnik">
+              <MappingFragment StoreEntitySet="Sotrudnik">
+                <ScalarProperty Name="ID_Sotrudnik" ColumnName="ID-Sotrudnik" />
+                <ScalarProperty Name="Familiya" ColumnName="Familiya" />
+                <ScalarProperty Name="Imya" ColumnName="Imya" />
+                <ScalarProperty Name="Otchestvo" ColumnName="Otchestvo" />
+                <ScalarProperty Name="Elektronnaya_pochta" ColumnName="Elektronnaya_pochta" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Dolya_ot_komissii" ColumnName="Dolya_ot_komissii" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status_dogovora">
+            <EntityTypeMapping TypeName="ModulModel.Status_dogovora">
+              <MappingFragment StoreEntitySet="Status_dogovora">
+                <ScalarProperty Name="ID_Status_dogovora" ColumnName="ID-Status_dogovora" />
+                <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status_ob_ekta_nedvizhimosti">
+            <EntityTypeMapping TypeName="ModulModel.Status_ob_ekta_nedvizhimosti">
+              <MappingFragment StoreEntitySet="Status_ob'ekta_nedvizhimosti">
+                <ScalarProperty Name="ID_Status_ob_ekta_nedvizhimosti" ColumnName="ID-Status_ob'ekta_nedvizhimosti" />
+                <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ModulModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tip_dogovora">
+            <EntityTypeMapping TypeName="ModulModel.Tip_dogovora">
+              <MappingFragment StoreEntitySet="Tip_dogovora">
+                <ScalarProperty Name="ID_Tip_dogovora" ColumnName="ID-Tip_dogovora" />
+                <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tip_nedvizhimosti">
+            <EntityTypeMapping TypeName="ModulModel.Tip_nedvizhimosti">
+              <MappingFragment StoreEntitySet="Tip_nedvizhimosti">
+                <ScalarProperty Name="ID_Tip_nedvizhimosti" ColumnName="ID-Tip_nedvizhimosti" />
+                <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vladelec">
+            <EntityTypeMapping TypeName="ModulModel.Vladelec">
+              <MappingFragment StoreEntitySet="Vladelec">
+                <ScalarProperty Name="ID_Vladelec" ColumnName="ID-Vladelec" />
+                <ScalarProperty Name="Familiya" ColumnName="Familiya" />
+                <ScalarProperty Name="Imya" ColumnName="Imya" />
+                <ScalarProperty Name="Otchestvo" ColumnName="Otchestvo" />
+                <ScalarProperty Name="Data_rozhdeniya" ColumnName="Data_rozhdeniya" />
+                <ScalarProperty Name="Elektronnaya_pochta" ColumnName="Elektronnaya_pochta" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Seriya_pasporta" ColumnName="Seriya_pasporta" />
+                <ScalarProperty Name="Nomer_pasporta" ColumnName="Nomer_pasporta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

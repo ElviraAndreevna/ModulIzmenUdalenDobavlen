@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c2181f2a8ac941f18ad09f97c7da30d3" Name="Diagram1" ZoomLevel="114">
+        <EntityTypeShape EntityType="ModulModel.Account" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModulModel.AccountType" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModulModel.Dogovor" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModulModel.Obekt_nedvizhimosti" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModulModel.Sotrudnik" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModulModel.Status_dogovora" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModulModel.Status_ob_ekta_nedvizhimosti" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModulModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModulModel.Tip_dogovora" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModulModel.Tip_nedvizhimosti" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModulModel.Vladelec" Width="1.5" PointX="5.25" PointY="16.375" IsExpanded="true" />
+        <AssociationConnector Association="ModulModel.FK_Account_AccountType" ManuallyRouted="false" />
+        <AssociationConnector Association="ModulModel.FK_Sotrudnik_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="ModulModel.FK_Dogovor_Obekt_nedvizhimosti" ManuallyRouted="false" />
+        <AssociationConnector Association="ModulModel.FK_Dogovor_Rieltor" ManuallyRouted="false" />
+        <AssociationConnector Association="ModulModel.FK_Dogovor_Status_dogovora" ManuallyRouted="false" />
+        <AssociationConnector Association="ModulModel.FK_Dogovor_Tip_dogovora" ManuallyRouted="false" />
+        <AssociationConnector Association="ModulModel.FK_Dogovor_Vladelec" ManuallyRouted="false" />
+        <AssociationConnector Association="ModulModel.FK_Obekt_nedvizhimosti_Status_ob_ekta_nedvizhimosti" ManuallyRouted="false" />
+        <AssociationConnector Association="ModulModel.FK_Obekt_nedvizhimosti_Tip_nedvizhimosti" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
